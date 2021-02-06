@@ -1,7 +1,6 @@
 import 'package:bloc_easy/bloc/bloc_counter.dart';
 import 'package:bloc_easy/bloc/bloc_events.dart';
 import 'package:bloc_easy/bloc/bloc_states.dart';
-import 'package:bloc_easy/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +13,7 @@ class NormalBloc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Normal BLoc"),
+        title: Text("Normal BLoc Builder"),
       ),
       body: Center(
         child: BlocBuilder<CounterBloc, CounterState>(
@@ -22,14 +21,9 @@ class NormalBloc extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                BlocConsumer<CounterBloc, CounterState>(
-                  listener: (context, state) {},
-                  builder: (context, staste) {
-                    return Text(
-                      staste.counter.toString(),
-                      textScaleFactor: 4,
-                    );
-                  },
+                Text(
+                  state.counter.toString(),
+                  textScaleFactor: 4,
                 ),
                 RaisedButton(
                   child: Text("Increment"),

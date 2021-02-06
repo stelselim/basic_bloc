@@ -1,4 +1,6 @@
 import 'package:bloc_easy/cubit/complex_cubic_cubit.dart';
+import 'package:bloc_easy/screen/bloc_consumer_screen.dart';
+import 'package:bloc_easy/screen/bloc_listener_screen.dart';
 import 'package:bloc_easy/screen/complex_cubit_screen.dart';
 
 import 'package:bloc_easy/screen/counter_cubit_screen.dart';
@@ -29,9 +31,12 @@ class App extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        initialRoute: "/complexcubit",
+        debugShowCheckedModeBanner: false,
+        initialRoute: "/bloclistener",
         routes: {
           "/": (context) => NormalBloc(),
+          "/blocconsumer": (context) => BlocConsumerPage(),
+          "/bloclistener": (context) => BlocListenerPage(),
           "/countercubit": (context) => CounterCubitPage(),
           "/complexcubit": (context) => ComplexCubitPage()
         },
