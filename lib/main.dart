@@ -1,4 +1,6 @@
 import 'package:bloc_easy/bloc/bloc_events.dart';
+import 'package:bloc_easy/cubit/counter2_cubit.dart';
+import 'package:bloc_easy/screen/counter_cubit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,10 +14,21 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CounterBloc(),
+        ),
+        BlocProvider(
+          create: (context) => Counter2Cubit(),
+        )
+      ],
       child: MaterialApp(
-        home: ASd(),
+        initialRoute: "/countercubit",
+        routes: {
+          "/": (context) => ASd(),
+          "/countercubit": (context) => CounterCubitPage()
+        },
       ),
     );
   }
