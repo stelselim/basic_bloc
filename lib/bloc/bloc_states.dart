@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 
+@immutable
 class CounterState {
-  int counter;
+  final int counter;
 
   CounterState({@required this.counter});
 
